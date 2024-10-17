@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Flexible rod</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Flexible rod</h1>
+</header>
+<p>Consider the flexible rod depicted in (A):</p>
+<figure>
+<img src="figures/flexible-rod.svg" id="fig:flexible-rod" style="width:60.0%" alt="" /><figcaption>Flexible rod and its discretization.</figcaption>
+</figure>
+<p>We discretize it into <span class="math inline">N</span> segments, as shown in (B), with <span class="math inline">\ell_i</span> the length of segment <span class="math inline">i</span> and <span class="math inline">\theta_i</span> the angle it makes with its parent segment (or the vertical for <span class="math inline">\theta_1</span>).</p>
+<p>Our goal is to compute the position <span class="math inline">{}_W p_E</span> of the end-effector point <span class="math inline">E</span> with in the inertial frame <span class="math inline">W</span> whose origin is the point <span class="math inline">O</span>.</p>
+<ol type="1">
+<li>Attach a frame to each link, and write down the transform <span class="math inline">T_{i, i+1}</span> from link <span class="math inline">i+1</span> to its parent link <span class="math inline">i</span>.</li>
+<li>Calculate the transform <span class="math inline">T_{W, N}</span> from the last link <span class="math inline">N</span> to the inertial frame <span class="math inline">W</span>, and then <span class="math inline">p_E</span>.</li>
+</ol>
+<p>Let’s consider the case where all segments have the same length <span class="math inline">\ell_i = \frac{\ell}{N}</span> and the rod has uniform curvature, so that all relative orientations <span class="math inline">\theta_i</span> are equal to <span class="math inline">\frac{\Theta}{N}</span>.</p>
+<ol start="3" type="1">
+<li>Calculate in closed form the expression of <span class="math inline">p_E</span> when the number of segments <span class="math inline">N \to \infty</span>.</li>
+<li>What value of <span class="math inline">\Theta</span> maximizes the distance between <span class="math inline">E</span> and <span class="math inline">O</span>? What value minimizes it?</li>
+</ol>
+</body>
+</html>

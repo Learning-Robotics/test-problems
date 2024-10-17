@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Space station</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Space station</h1>
+</header>
+<p><strong>This problem is still work in progress.</strong></p>
+<p>Imagine a space station, to which we attach a reference frame <span class="math inline">I</span>. We assume that this frame is inertial over the time scale we will consider. Around this space station moved a satellite, to which we attach a frame <span class="math inline">S</span>. Inside that satellite is a gyroscope, whose body <span class="math inline">B</span> can rotate freely with respect to the satellite thanks to a <a href="https://en.wikipedia.org/wiki/Gimbal">gimbal</a>.</p>
+<ol type="1">
+<li>Show that the angular velocity of the body with respect to the space station, expressed in the satellite frame, satisfies:</li>
+</ol>
+<p><span class="math display">
+{}_S \omega_{IB} = {}_S \omega_{IS} + R_{SB} {}_B \omega_{SB}
+</span></p>
+</body>
+</html>

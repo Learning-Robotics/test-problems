@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Balancing a wheeled inverted pendulum</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Balancing a wheeled inverted pendulum</h1>
+</header>
+<p><strong>This problem is still work in progress.</strong></p>
+<p>Consider the wheeled inverted pendulum decpited in Figure :</p>
+<figure>
+<img src="figures/wheeled-inverted-pendulum.svg" id="fig:wheeled-inverted-pendulum" style="height:15em" alt="" /><figcaption>Wheeled inverted pendulum model.</figcaption>
+</figure>
+<p>Its equation of motion is:</p>
+<p><span class="math display">
+\ell \ddot{\theta} = g \sin(\theta) - \ddot{r} \cos(\theta)
+</span></p>
+<p>The wheel motor is commanded in wheel acceleration <span class="math inline">\ddot{\phi}</span>, which is proportional to the ground acceleration <span class="math inline">\ddot{r} = \rho \ddot{\phi}</span>. We therefore choose our control input as:</p>
+<p><span class="math display">
+u = \ddot{r}
+</span></p>
+<p>One way to characterize whether the robot “can balance” from a state is viability: a state <span class="math inline">x(0) = [\theta\ r\ \dot{\theta}\ \dot{r}]</span> of the robot is said to be <em>viable</em> if and only if there exists control inputs <span class="math inline">u(t)</span> such that, integrating the equation of motion above, there exists a future time <span class="math inline">T \geq 0</span> where the robot is back at its reference position <span class="math inline">x(T) = x_{\mathrm{ref}} = [0\ 0\ 0\ 0]</span>.</p>
+<h2 id="question-1">Question 1</h2>
+<p>In this question, the system starts from an initial state <span class="math inline">x(0) = [\theta_{\mathrm{i}}\ 0\ 0\ 0]</span>. The wheel motor has a maximum acceleration yielding a control input constraint <span class="math inline">u \leq a_{\mathrm{max}}</span>. What is the maximum initial angle <span class="math inline">\theta_{\mathrm{i,max}}</span> from which the robot can balance?</p>
+<ul>
+<li>Remember that, if <span class="math inline">x_{\mathrm{ref}}</span> is accessible from <span class="math inline">x(0)</span>, then there exists a minimum-time trajectory from <span class="math inline">x(0)</span> to <span class="math inline">x_{\mathrm{ref}}</span> [1].</li>
+<li>We will admit that time-optimal solutions for this system are bang-bang, <em>i.e.</em>, <span class="math inline">\forall t, u(t) = \pm a_{\mathrm{max}}</span>.</li>
+</ul>
+<h2 id="references">References</h2>
+<p>[1] Theorem 3.1.1 in <em>Contrôle optimal: théorie &amp; applications</em>, E. Trélat, 2005.</p>
+</body>
+</html>
